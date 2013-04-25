@@ -1,0 +1,6 @@
+node_modules
+dist
+.tmp
+app/components
+.DS_Store
+.idea
