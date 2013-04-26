@@ -4,4 +4,4 @@ dist
 app/components
 .DS_Store
 .idea
-.BUILDLOG.md
+/BUILDLOG.md

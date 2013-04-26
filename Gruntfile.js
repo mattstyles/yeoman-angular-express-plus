@@ -10,10 +10,6 @@ module.exports = function (grunt) {
     // Include helpers
     var utils   = require( './grunt/utils' ).init( grunt );
     var helpers = require( './grunt/helpers' ).init( grunt );
-    var jsonMin = require( './json-minify/minify.json.js');
-
-    // Create jshint file // @todo move to helper/utils
-    grunt.file.write( '.jshint', jsonMin.JSON.minify( grunt.file.read( '.jshintrc' ) ) );
 
     // ------------------------------------------------------
     // --
@@ -22,8 +18,7 @@ module.exports = function (grunt) {
     // ------------------------------------------------------
 
     // load all grunt tasks
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    grunt.loadNpmTasks('grunt-booty');
+    require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
     // configurable paths
     var appConfig = grunt.file.readJSON( 'app-config.json' ) || {};
@@ -142,6 +137,18 @@ module.exports = function (grunt) {
                 }]
             },
             server: '.tmp'
+        },
+
+        jsonmin: {
+            dev: {
+                options: {
+                    stripWhitespace : true,
+                    stripComments   : true
+                },
+                files: {
+                    '.jshint' : '.jshintrc'
+                }
+            }
         },
 
         jshint: {
@@ -387,6 +394,7 @@ module.exports = function (grunt) {
         'build',
         'Builds the project into ' + yeomanConfig.dist,
         [   'clean:dist',
+            'jsonmin',
 //            'jshint',
             'test',
             'useminPrepare',
