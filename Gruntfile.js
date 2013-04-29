@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 
     // Include helpers
     var utils   = require( './grunt/utils' ).init( grunt );
-//    var helpers = require( './grunt/helpers' ).init( grunt );
+    var helpers = require( './grunt/helpers' ).init( grunt );
 
     // ------------------------------------------------------
     // --
@@ -354,30 +354,36 @@ module.exports = function (grunt) {
     // Rename tasks
     grunt.renameTask('regarde', 'watch');
 
-    /*
-     * Server
+    /**
+     * Dev
      *
+     * Performs a clean up and compile for development
      * Starts the development server and watch task
      */
-    utils.registerTask(
-        'server',
-        'Starts a development server and watch task',
-        [   'clean:server',
-            'less:dev',
-            'livereload-start',
-            'connect:livereload',
-            'open',
-            'watch' ],
-        { 'test option' : 'this is a test string' }
+    var tasks = [
+        'clean:server',
+        'less:dev',
+        'livereload-start',
+        'connect:livereload',
+        'open',
+        'watch'
+    ];
+
+    helpers.addOption( '!skip-tests', tasks, 0, 'test' );
+
+    helpers.registerTask(
+        'dev',
+        'Compiles the project for development and starts\na development server and watch task ',
+        tasks,
+        { 'skip-tests' : 'skips the tests' }
     );
 
-
-    /*
+    /**
      * Test
      *
      * Cleans stuff up and runs Karma test suite
      */
-    utils.registerTask(
+    helpers.registerTask(
         'test',
         'Runs Karma tests',
         [   'clean:server',
@@ -385,12 +391,30 @@ module.exports = function (grunt) {
             'karma' ]
     );
 
-    /*
+    /**
      * Build
      *
      * Builds the project into dist
      */
-    utils.registerTask(
+    tasks = [   'clean:dist',
+        'jsonmin',
+        'jshint',
+        'test',
+        'useminPrepare',
+        'imagemin',
+        'cssmin',
+        'htmlmin',
+        'concat',
+        'copy',
+        'cdnify',
+        'ngmin',
+        'uglify',
+//            'rev',
+        'usemin',
+        'less:dist'
+    ];
+
+    helpers.registerTask(
         'build',
         'Builds the project into ' + yeomanConfig.dist,
         [   'clean:dist',
@@ -418,7 +442,7 @@ module.exports = function (grunt) {
      * Cleans the css directory and copies over stuff for bootstrap and font-awesome
      * Note that this currently does not use the extra stuff in font-awesome-more
      */
-    utils.registerTask(
+    helpers.registerTask(
         'bootstrap',
         'Copies bootstrap and font-awesome from bower install to working directory and builds main.less',
         [   'clean:css',
@@ -432,7 +456,7 @@ module.exports = function (grunt) {
      *
      * Compiles jshint config file and lints code
      */
-    utils.registerTask(
+    helpers.registerTask(
         'lint',
         'Compiles jshint config file and lints code',
         [   'jsonmin',
@@ -445,9 +469,10 @@ module.exports = function (grunt) {
      *
      * Just runs build for now
      */
-    utils.registerTask(
+    helpers.registerTask(
         'default',
         'Alias for the build task',
         [   'build'  ]
     );
+
 };
