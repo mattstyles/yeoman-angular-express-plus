@@ -315,7 +315,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.dist %>/styles/css/*.css',
                         '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                         '<%= yeoman.dist %>/styles/font/*',
-                        '<%= yeoman.dist %>/styles/fonts/**/*'
+                        '<%= yeoman.dist %>/styles/fonts/**/*.{eot,svg,ttf,woff}'
                     ]
                 }
             }
@@ -412,7 +412,7 @@ module.exports = function (grunt) {
             'cdnify',
             'ngmin',
             'uglify',
-//            'rev',
+            'rev',
             'usemin',
             'less:dist'
         ]
