@@ -71,11 +71,23 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
+                    middleware: function( connect ) {
                         return [
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder( connect, '.tmp' ),
+                            mountFolder( connect, yeomanConfig.app )
+                        ];
+                    }
+                }
+            },
+            production: {
+                options: {
+                    keepalive: true,
+                    middleware: function( connect ) {
+                        return [
+                            lrSnippet,
+                            mountFolder( connect, '.tmp' ),
+                            mountFolder( connect, yeomanConfig.dist )
                         ];
                     }
                 }
@@ -83,10 +95,10 @@ module.exports = function (grunt) {
             test: {
                 options: {
                     port: 5001,
-                    middleware: function (connect) {
+                    middleware: function( connect ) {
                         return [
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test')
+                            mountFolder( connect, '.tmp' ),
+                            mountFolder( connect, 'test' )
                         ];
                     }
                 }
@@ -397,26 +409,52 @@ module.exports = function (grunt) {
      *
      * Builds the project into dist
      */
+    tasks = [
+        'clean:dist',
+        'jsonmin',
+        'jshint',
+        'test',
+        'useminPrepare',
+        'imagemin',
+        'cssmin',
+        'htmlmin',
+        'concat',
+        'copy',
+        'cdnify',
+        'ngmin',
+        'uglify',
+        'rev',
+        'usemin',
+        'less:dist'
+    ];
+
+    helpers.addOption( 'use', tasks, 'less:dist', 'open-build' );
+
+    if ( grunt.option( 'open' ) ) {
+        tasks = 'open-build';
+    }
+
     helpers.registerTask(
         'build',
         'Builds the project into ' + yeomanConfig.dist,
-        [   'clean:dist',
-            'jsonmin',
-            'jshint',
-            'test',
-            'useminPrepare',
-            'imagemin',
-            'cssmin',
-            'htmlmin',
-            'concat',
-            'copy',
-            'cdnify',
-            'ngmin',
-            'uglify',
-            'rev',
-            'usemin',
-            'less:dist'
-        ]
+        tasks,
+        { 'use' : 'serve locally after build',
+          'open' : 'opens the build' }
+    );
+
+    // Register task list to open the built distribution - serving locally
+    // Useful for testing built code
+    var openTasks = [
+        'clean:server',
+        'livereload-start',
+        'open:server',
+        'connect:production'
+    ];
+
+    helpers.registerTask(
+        'open-build',
+        'Opens the production build',
+        openTasks
     );
 
     /**
