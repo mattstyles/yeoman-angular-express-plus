@@ -3,9 +3,33 @@
 // Includes
 var colors = require( 'colors' );
 
+// Extend basics
+// String capitalisation function
+String.prototype.cap = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+// Inserts an element into an array
+Array.prototype.insert = function( i, el ) {
+    if ( typeof( i ) !== 'number' ) {
+        i = this.indexOf( i ) + 1;
+    }
+    if ( typeof( el ) !== 'object' ) {
+        var arr = [];
+        arr.push( el );
+    } else {
+        arr = el;
+    }
+
+    return arr.forEach( function( index ) {
+        this.splice( i, 0, index );
+        i = i + 1;
+    }, this );
+};
+
 // Utility functions
 var utils = function( grunt ) {
-    
+
     return {
 
         // Dummy testing function @todo remove
