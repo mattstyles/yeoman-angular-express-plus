@@ -412,12 +412,11 @@ module.exports = function (grunt) {
         ]
     );
 
-    /*
+    /**
      * Bootstrap
      *
      * Cleans the css directory and copies over stuff for bootstrap and font-awesome
      * Note that this currently does not use the extra stuff in font-awesome-more
-     * It also won't build less files into main.css either - for now use `grunt less:dev`
      */
     utils.registerTask(
         'bootstrap',
