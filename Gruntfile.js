@@ -351,11 +351,11 @@ module.exports = function (grunt) {
     // --
     // ------------------------------------------------------
 
-    // Rename tasks
-    grunt.renameTask('regarde', 'watch');
+    // Prelim task rename
+    grunt.renameTask( 'regarde', 'watch' );
 
     /**
-     * Dev
+     * Server
      *
      * Performs a clean up and compile for development
      * Starts the development server and watch task
@@ -372,7 +372,7 @@ module.exports = function (grunt) {
     helpers.addOption( '!skip-tests', tasks, 0, 'test' );
 
     helpers.registerTask(
-        'dev',
+        'server',
         'Compiles the project for development and starts\na development server and watch task ',
         tasks,
         { 'skip-tests' : 'skips the tests' }
@@ -456,5 +456,11 @@ module.exports = function (grunt) {
         'Alias for the build task',
         [   'build'  ]
     );
+
+
+    // Add task aliases
+    grunt.registerTask( 'prod', ['build']);
+    grunt.registerTask( 'dist', ['build']);
+    grunt.registerTask( 'dev', ['server']);
 
 };
