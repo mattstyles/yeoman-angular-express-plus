@@ -1,15 +1,14 @@
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
 var mountFolder = function (connect, dir) {
-  return connect.static(require('path').resolve(dir));
+    return connect.static(require('path').resolve(dir));
 };
-var colors = require('colors');
 
 module.exports = function (grunt) {
 
     // Include helpers
     var utils   = require( './grunt/utils' ).init( grunt );
-    var helpers = require( './grunt/helpers' ).init( grunt );
+//    var helpers = require( './grunt/helpers' ).init( grunt );
 
     // ------------------------------------------------------
     // --
@@ -57,10 +56,10 @@ module.exports = function (grunt) {
                 tasks: ['livereload']
             },
             less: {
-            	files: [
-            		'<%= yeoman.app %>/styles/less/*.less'
-            	],
-            	tasks: ['less:dev']
+                files: [
+                    '<%= yeoman.app %>/styles/less/*.less'
+                ],
+                tasks: ['less:dev']
             }
         },
 
@@ -187,19 +186,19 @@ module.exports = function (grunt) {
         less: {
             dev: {
                 options: {
-                    paths: ["<%= yeoman.app %>/styles/less/"]
+                    paths: ['<%= yeoman.app %>/styles/less/']
                 },
                 files: {
-                    "<%= yeoman.app %>/styles/css/main.css": "<%= yeoman.app %>/styles/less/*.less"
+                    '<%= yeoman.app %>/styles/css/main.css': '<%= yeoman.app %>/styles/less/*.less'
                 }
             },
             dist: {
                 options: {
-                    paths: ["<%= yeoman.app %>/styles/less/"],
+                    paths: ['<%= yeoman.app %>/styles/less/'],
                     yuicompress: true
                 },
                 files: {
-                    "<%= yeoman.dist %>/styles/css/main-min.css": "<%= yeoman.app %>/styles/less/*.less"
+                    '<%= yeoman.dist %>/styles/css/main-min.css': '<%= yeoman.app %>/styles/less/*.less'
                 }
             }
         },
@@ -368,7 +367,7 @@ module.exports = function (grunt) {
             'connect:livereload',
             'open',
             'watch' ],
-        { "test option" : "this is a test string" }
+        { 'test option' : 'this is a test string' }
     );
 
 
@@ -395,7 +394,7 @@ module.exports = function (grunt) {
         'Builds the project into ' + yeomanConfig.dist,
         [   'clean:dist',
             'jsonmin',
-//            'jshint',
+            'jshint',
             'test',
             'useminPrepare',
             'imagemin',
