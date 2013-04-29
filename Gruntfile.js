@@ -82,6 +82,7 @@ module.exports = function (grunt) {
             },
             test: {
                 options: {
+                    port: 5001,
                     middleware: function (connect) {
                         return [
                             mountFolder(connect, '.tmp'),
@@ -456,7 +457,6 @@ module.exports = function (grunt) {
         'Alias for the build task',
         [   'build'  ]
     );
-
 
     // Add task aliases
     grunt.registerTask( 'prod', ['build']);
