@@ -156,6 +156,7 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
+                'grunt/*',
                 '<%= yeoman.app %>/scripts/{,*/}*.js'
             ]
         },
@@ -427,7 +428,20 @@ module.exports = function (grunt) {
         ]
     );
 
-    /*
+    /**
+     * Lint
+     *
+     * Compiles jshint config file and lints code
+     */
+    utils.registerTask(
+        'lint',
+        'Compiles jshint config file and lints code',
+        [   'jsonmin',
+            'jshint'
+        ]
+    );
+
+    /**
      * Default Grunt Task
      *
      * Just runs build for now
