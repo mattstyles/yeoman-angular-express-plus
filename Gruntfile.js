@@ -396,24 +396,6 @@ module.exports = function (grunt) {
      *
      * Builds the project into dist
      */
-    tasks = [   'clean:dist',
-        'jsonmin',
-        'jshint',
-        'test',
-        'useminPrepare',
-        'imagemin',
-        'cssmin',
-        'htmlmin',
-        'concat',
-        'copy',
-        'cdnify',
-        'ngmin',
-        'uglify',
-//            'rev',
-        'usemin',
-        'less:dist'
-    ];
-
     helpers.registerTask(
         'build',
         'Builds the project into ' + yeomanConfig.dist,
