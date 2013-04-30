@@ -6,7 +6,12 @@ angular.module('yoAngularExpressTestApp')
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
-            'Karma'
+            'Karma',
+            'jQuery',
+            'Bootstrap',
+            'Font-Awesome',
+            'Modernizr',
+            'Underscore'
         ];
 
     });
