@@ -35,10 +35,11 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         yeoman: yeomanConfig,
+        appConfig: appConfig,
         banner: '/* <%= appConfig.info.name %> - version <%= appConfig.info.version %> - ' +
                 '<%= grunt.template.today("dd-mm-yyyy") %>\n' +
                 '<%= appConfig.info.description %>\n ' +
-                '&#169 <%= grunt.template.today("yyyy") %> <%= appConfig.info.author.name %> ' +
+                '© <%= grunt.template.today("yyyy") %> <%= appConfig.info.author.name %> ' +
                 '- <%= appConfig.info.author.email %> */\n',
 
         /*
@@ -360,7 +361,7 @@ module.exports = function (grunt) {
             },
             files: {
                 src: [
-
+                    '<%= yeoman.dist %>/scripts/*'
                 ]
             }
         }
@@ -435,7 +436,8 @@ module.exports = function (grunt) {
         'ngmin',
         'uglify',
         'rev',
-        'usemin'
+        'usemin',
+        'usebanner'
     ];
 
     helpers.addOption( 'use', tasks, 'usemin', 'open-build' );
