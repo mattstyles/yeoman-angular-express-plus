@@ -176,7 +176,6 @@ module.exports = function (grunt) {
 
         concat: {
             options: {
-                banner: '<% banner %>'
             },
             dist: {
                 files: {
@@ -212,7 +211,7 @@ module.exports = function (grunt) {
                     yuicompress: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/styles/css/main-min.css': '<%= yeoman.app %>/styles/less/*.less'
+                    '<%= yeoman.dist %>/styles/css/main.css': '<%= yeoman.app %>/styles/less/*.less'
                 }
             }
         },
@@ -297,7 +296,6 @@ module.exports = function (grunt) {
 
         uglify: {
             options: {
-                banner: '<% banner %>'
             },
             dist: {
                 files: {
@@ -427,6 +425,7 @@ module.exports = function (grunt) {
         'jsonmin',
         'jshint',
         'test',
+        'less:dist',
         'useminPrepare',
         'imagemin',
         'cssmin',
@@ -437,11 +436,10 @@ module.exports = function (grunt) {
         'ngmin',
         'uglify',
         'rev',
-        'usemin',
-        'less:dist'
+        'usemin'
     ];
 
-    helpers.addOption( 'use', tasks, 'less:dist', 'open-build' );
+    helpers.addOption( 'use', tasks, 'usemin', 'open-build' );
 
     if ( grunt.option( 'open' ) ) {
         tasks = 'open-build';
