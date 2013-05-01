@@ -353,6 +353,19 @@ module.exports = function (grunt) {
                     ]
                 }]
             }
+        },
+
+        // Adds a banner to built files
+        usebanner: {
+            options: {
+                position: 'top',
+                banner: '<%= banner %>'
+            },
+            files: {
+                src: [
+
+                ]
+            }
         }
 
     });
