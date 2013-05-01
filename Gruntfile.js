@@ -211,7 +211,7 @@ module.exports = function (grunt) {
                     yuicompress: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/styles/css/main.css': '<%= yeoman.app %>/styles/less/*.less'
+                    '<%= yeoman.app %>/styles/css/main.css': '<%= yeoman.app %>/styles/less/*.less'
                 }
             }
         },
@@ -346,8 +346,7 @@ module.exports = function (grunt) {
                         'components/**/*',
                         'images/{,*/}*.{gif,webp}',
                         'styles/fonts/**/*',
-                        'styles/font/*',
-                        'styles/css/*'
+                        'styles/font/*'
                     ]
                 }]
             }
