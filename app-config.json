@@ -4,9 +4,10 @@
         "description"   :   "Yeoman scaffolded angular-express app with extra goodies",
         "version"       :   "0.1.0",
         "author"        :   {
-            "name"  :   "author",
-            "email" :   "email",
-            "url"   :   "url"
+            "name"    :   "author",
+            "email"   :   "email",
+            "url"     :   "url",
+            "twitter" :   "twitter"
         }
     },
     "appPath"   :   "app",

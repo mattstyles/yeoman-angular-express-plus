@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                 '<%= grunt.template.today("dd-mm-yyyy") %>\n' +
                 '<%= appConfig.info.description %>\n ' +
                 '© <%= grunt.template.today("yyyy") %> <%= appConfig.info.author.name %> ' +
-                '- <%= appConfig.info.author.email %> */\n',
+                '- <%= appConfig.info.author.email %> - <%= appConfig.info.author.twitter %> */\n',
 
         /*
          * Watch and Reload Tasks
