@@ -62,7 +62,8 @@ var utils = function( grunt ) {
             return function( err, stdout, stderr, cb) {
                 // Handle an error
                 if ( err ) {
-                    grunt.log.writeln( 'Error with task ' + event.sepAfter(':') );
+                    grunt.event.emit( 'error', event.sepAfter(':') );
+                    return;
                 }
 
                 // Emit the event that signifies the end of the shell task
