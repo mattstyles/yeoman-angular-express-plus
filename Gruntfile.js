@@ -26,6 +26,9 @@ module.exports = function (grunt) {
         dist: appConfig.distPath || 'dist'
     };
 
+    // Run install script if necessary
+    helpers.doInstall();
+
     // ------------------------------------------------------
     // --
     // --   Task Config
@@ -364,6 +367,22 @@ module.exports = function (grunt) {
                 src: [
                     '<%= yeoman.dist %>/scripts/*'
                 ]
+            }
+        },
+
+        // Shell execution commands
+        shell: {
+            install: {
+                command: [
+                    'pwd',
+                    'pwd'
+                ].join('&&'),
+                options: {
+                    stdout: true,
+                    stderror: true,
+                    failOnError: true,
+                    callback: utils.emit( 'eventEnd:install' )
+                }
             }
         }
 
