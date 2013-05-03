@@ -71,7 +71,7 @@ var utils = function( grunt ) {
 
                 // Remember to call the callback
                 cb();
-            }
+            };
         }
 
     };
