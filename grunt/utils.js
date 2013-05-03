@@ -8,6 +8,14 @@ var colors = require( 'colors' );
 String.prototype.cap = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
+// String separation function
+// Breaks a string at a specified separator
+String.prototype.sepAfter = function( separator ) {
+    return this.substring( this.indexOf( separator ) + 1 );
+};
+String.prototype.sepBefore = function( separator ) {
+    return this.substring( 0, this.indexOf( separator ) );
+};
 
 // Inserts an element into an array
 Array.prototype.insert = function( i, el ) {
