@@ -33,6 +33,13 @@ var helpers = function( grunt ) {
         }
     };
 
+    // Register the install task
+    grunt.registerTask(
+        'install',
+        'runs ' + 'npm'.green + ' and ' + 'bower'.green + ' install if not already done',
+        require( './install').task( grunt )
+    );
+
     // Expose public
     return {
 
