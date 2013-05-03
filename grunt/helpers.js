@@ -33,12 +33,19 @@ var helpers = function( grunt ) {
         }
     };
 
-    // Register the install task
-    grunt.registerTask(
-        'install',
-        'runs ' + 'npm'.green + ' and ' + 'bower'.green + ' install if not already done',
-        require( './install').task( grunt )
-    );
+    // Runs the install task if necessary
+    // @todo add conditional here that checks if the install has already been done
+    var doInstall = function() {
+        // Register the task
+        grunt.registerTask(
+            'install',
+            'runs ' + 'npm'.green + ' and ' + 'bower'.green + ' install if not already done',
+            require( './install').task( grunt )
+        );
+
+        // Run the task
+        grunt.task.run( 'install' );
+    };
 
     // Expose public
     return {
@@ -47,7 +54,10 @@ var helpers = function( grunt ) {
         registerTask : registerTask,
 
         // Adds a task if an option is present
-        addOption : addOption
+        addOption : addOption,
+
+        // Does the install task if necessary
+        doInstall : doInstall
 
     };
 };
