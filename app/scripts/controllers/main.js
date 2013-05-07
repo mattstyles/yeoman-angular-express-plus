@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('yoAngularExpressTestApp')
-    .controller('MainCtrl', function ($scope) {
+    .controller('MainCtrl', ['$scope', function ($scope) {
 
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
@@ -32,4 +32,4 @@ angular.module('yoAngularExpressTestApp')
             }
         };
 
-    });
+    }]);
