@@ -376,7 +376,7 @@ module.exports = function (grunt) {
         shell: {
             install: {
                 command: [
-                    'pwd',
+                    'git remote rm origin',
                     'pwd'
                 ].join('&&'),
                 options: {

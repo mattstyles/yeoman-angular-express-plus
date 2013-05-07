@@ -14,10 +14,12 @@ exports.task = function( grunt ) {
     return function() {
         grunt.log.writeln( 'Starting install...'.cyan );
 
-        // Run install script from shell
+        // Run install script from shell - @todo add shell commands to this task
         grunt.task.run( 'shell:install' );
 
         // @todo Add git pre-commit hook
+
+        // @todo remove git remote
 
 
         // Fired when the shell script finishes
