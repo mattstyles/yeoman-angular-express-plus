@@ -14,4 +14,17 @@ angular.module('yoAngularExpressTestApp')
             'Underscore'
         ];
 
+        $scope.isCollapsed = true;
+
+        $scope.collapseText = "Open";
+
+        $scope.collapseIcon = "icon-chevron-down";
+
+        $scope.collapse = function() {
+            $scope.isCollapsed = !$scope.isCollapsed;
+
+            $scope.isCollapsed ? $scope.collapseText = "Open" : $scope.collapseText = "Close";
+            $scope.isCollapsed ? $scope.collapseIcon = "icon-chevron-down" : $scope.collapseIcon = "icon-chevron-up";
+        };
+
     });
