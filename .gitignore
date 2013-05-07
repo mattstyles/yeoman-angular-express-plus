@@ -6,3 +6,4 @@ app/components
 .idea
 /BUILDLOG.md
 /app/styles/css/main.css
+/.jshint
