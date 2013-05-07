@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('yoAngularExpressTestApp', ['ui.bootstrap'])
+angular.module('yoAngularExpressTestApp')
     .controller('MainCtrl', function ($scope) {
 
         $scope.awesomeThings = [
