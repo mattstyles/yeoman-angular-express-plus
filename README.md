@@ -8,11 +8,11 @@ express/socket.io backend and some extra goodies
 Javascript is great.  Lots and lots of lovely javascript.  Celebrate javascript with a stack full of
 goodies.
 
-Love Javascript?
+_Love Javascript?_
 
-Love Yeoman?
+_Love Yeoman?_
 
-Love Node?
+_Love Node?_
 
 Why not put them all together?
 
