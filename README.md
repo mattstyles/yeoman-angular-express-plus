@@ -8,11 +8,11 @@ express/socket.io backend and some extra goodies
 Javascript is great.  Lots and lots of lovely javascript.  Celebrate javascript with a stack full of
 goodies.
 
-Love Javascript?
+_Love Javascript?_
 
-Love Yeoman?
+_Love Yeoman?_
 
-Love Node?
+_Love Node?_
 
 Why not put them all together?
 
@@ -38,10 +38,10 @@ cd path/to/directory
 Clone the base repository from master into your new project at `path/to/directory` and then `cd` into it.
 
 ```bash
-git checkout client
+git checkout client-angular-bootstrap
 ```
 
-Change the repository to the `client` project which contains the goodies just for the client-side.  This needs
+Change the repository to the `ui-bootstrap` branch which contains the goodies just for the client-side.  This needs
 to be done before running a build of this seed - the install task (by running `grunt`) will remove the link to
 the remote so change branches first.
 
