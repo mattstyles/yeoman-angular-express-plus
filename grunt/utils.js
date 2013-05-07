@@ -77,7 +77,6 @@ var utils = function( grunt ) {
             }
 
             // Write the new file
-            console.log(newJson);
             grunt.file.write( file, newJson );
         },
 

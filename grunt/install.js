@@ -19,8 +19,6 @@ exports.task = function( grunt ) {
 
         // @todo Add git pre-commit hook
 
-        // @todo remove git remote
-
 
         // Fired when the shell script finishes
         grunt.event.on( 'eventEnd:install', function( task ) {
