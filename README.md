@@ -30,28 +30,34 @@ Follow these steps to bubble the JS cauldron:
 
 ## Detailed instructions
 
-`git clone git@github.com:mattstyles/yeoman-angular-express-plus path/to/directory`
-
-`cd path/to/directory`
+```bash
+git clone git@github.com:mattstyles/yeoman-angular-express-plus path/to/directory
+cd path/to/directory
+```
 
 Clone the base repository from master into your new project at `path/to/directory` and then `cd` into it.
 
-`git checkout client`
+```bash
+git checkout client
+```
 
 Change the repository to the `client` project which contains the goodies just for the client-side.  This needs
 to be done before running a build of this seed - the install task (by running `grunt`) will remove the link to
 the remote so change branches first.
 
-`npm install`
+```bash
+npm install
+```
 
 This step is necessary for installing [Grunt](www.gruntjs.com).  Grunt should be installed locally but this
 `npm install` step will ensure that all of the development dependencies are included alongside.
 
-`grunt dev`
+```bash
+grunt dev
+```
 
 Now fire off a development build.  There is quite a lot going on in the Gruntfile so have a good poke around
 to see what it can do.  `Grunt dev` (or `grunt server`) will run the install task the first time the repository
 is cloned.  The install task will remove the link to this seed repository so that you can link to your own `git`
 powered repository.
-
 
