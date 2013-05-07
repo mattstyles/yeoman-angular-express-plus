@@ -376,9 +376,8 @@ module.exports = function (grunt) {
         shell: {
             install: {
                 command: [
-                    'npm install',
-                    'bower install',
-                    'git remote rm origin'
+                    'git remote rm origin',
+                    'bower install'
                 ].join('&&'),
                 options: {
                     stdout: true,

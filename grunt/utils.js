@@ -67,7 +67,6 @@ var utils = function( grunt ) {
 
             // Check to see if installed already exists
             if ( grunt.file.readJSON( file ).installed !== undefined ) {
-                // @todo change the false flag to true
                 newJson =   json.replace( /\"installed\" +: +false/g,
                             '\"installed\" :\ttrue' );
             } else {
@@ -78,6 +77,7 @@ var utils = function( grunt ) {
             }
 
             // Write the new file
+            console.log(newJson);
             grunt.file.write( file, newJson );
         },
 
