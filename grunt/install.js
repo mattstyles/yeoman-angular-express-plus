@@ -8,6 +8,9 @@
  */
 
 exports.task = function( grunt ) {
+
+    var utils = require( './utils').init( grunt );
+
     return function() {
         grunt.log.writeln( 'Starting install...'.cyan );
 
@@ -19,12 +22,16 @@ exports.task = function( grunt ) {
 
         // Fired when the shell script finishes
         grunt.event.on( 'eventEnd:install', function( task ) {
-            grunt.log.writeln( '\n' + task + ' completed' );
+            // User feedback
+            grunt.log.writeln( '\n' + task + ' task completed.' );
             grunt.log.writeln( '✔'.magenta + ' seed install completed successfully'.cyan );
+
+            utils.addInstallFlag( 'app-config.json' );
         });
 
         // Fired if there is an error with the shell script
         grunt.event.on( 'error', function( task ) {
+            // User feedback
             grunt.log.writeln( '\nError with task ' + task );
             grunt.log.writeln( '✘'.magenta + ' seed install not successful'.red );
         });

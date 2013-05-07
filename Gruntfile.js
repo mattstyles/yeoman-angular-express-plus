@@ -27,7 +27,9 @@ module.exports = function (grunt) {
     };
 
     // Run install script if necessary
-    helpers.doInstall();
+    if ( !appConfig.installed ) {
+        helpers.doInstall();
+    }
 
     // ------------------------------------------------------
     // --

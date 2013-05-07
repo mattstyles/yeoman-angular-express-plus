@@ -16,6 +16,9 @@ String.prototype.sepAfter = function( separator ) {
 String.prototype.sepBefore = function( separator ) {
     return this.substring( 0, this.indexOf( separator ) );
 };
+String.prototype.insert = function( index, str ) {
+    return this.slice( 0, index ) + str + this.slice( index, this.length );
+};
 
 // Inserts an element into an array
 Array.prototype.insert = function( i, el ) {
@@ -55,6 +58,27 @@ var utils = function( grunt ) {
             }
 
             return str;
+        },
+
+        // Add installed key to JSON
+        addInstallFlag : function( file ) {
+            var json = grunt.file.read( file );
+            var newJson = json;
+
+            // Check to see if installed already exists
+            if ( grunt.file.readJSON( file ).installed !== undefined ) {
+                // @todo change the false flag to true
+                newJson =   json.replace( /\"installed\" +: +false/g,
+                            '\"installed\" :\ttrue' );
+            } else {
+                // If the install flag does not exist then create it and assign it to true
+                newJson =   json.slice( 0, json.lastIndexOf( '}' ) - 1 ) +
+                            ',\n\t\"installed\" :\ttrue' +
+                            json.slice( json.lastIndexOf( '}' ) - 1, json.length );
+            }
+
+            // Write the new file
+            grunt.file.write( file, newJson );
         },
 
         // Emits an event when the shell task finishes

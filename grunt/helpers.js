@@ -36,6 +36,11 @@ var helpers = function( grunt ) {
     // Runs the install task if necessary
     // @todo add conditional here that checks if the install has already been done
     var doInstall = function() {
+        // Check that the install has not already been done
+        if ( grunt.file.readJSON( 'app-config.json').installed ) {
+            return;
+        }
+
         // Register the task
         grunt.registerTask(
             'install',
