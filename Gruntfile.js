@@ -353,7 +353,8 @@ module.exports = function (grunt) {
                         'components/**/*',
                         'images/{,*/}*.{gif,webp}',
                         'styles/fonts/**/*',
-                        'styles/font/*'
+                        'styles/font/*',
+                        'vendor/{,*/}*.js'
                     ]
                 }]
             }
@@ -462,7 +463,7 @@ module.exports = function (grunt) {
         'usebanner'
     ];
 
-    helpers.addOption( 'use', tasks, 'usemin', 'open-build' );
+    helpers.addOption( 'use', tasks, 'usebanner', 'open-build' );
 
     if ( grunt.option( 'open' ) ) {
         tasks = 'open-build';

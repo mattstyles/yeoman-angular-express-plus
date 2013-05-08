@@ -44,7 +44,7 @@ Follow these steps to bubble the JS cauldron:
 
 * [Modernizr](http://modernizr.com/)
 
-* [Underscore](http://underscorejs.org/)
+* [lodash](http://lodash.com/)
 
 
 ## Detailed Include-list

@@ -11,7 +11,7 @@ angular.module('yoAngularExpressTestApp')
             'UI-Bootstrap',
             'Font-Awesome',
             'Modernizr',
-            'Underscore'
+            'lodash'
         ];
 
         $scope.isCollapsed = true;
