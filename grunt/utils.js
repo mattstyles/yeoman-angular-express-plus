@@ -42,15 +42,6 @@ var utils = function( grunt ) {
 
     return {
 
-        // Dummy testing function @todo remove
-        writeIt : function( str ) {
-            if ( str ) {
-                grunt.log.writeln( str );
-            } else {
-                grunt.log.writeln( 'it' );
-            }
-        },
-
         // Quick string space fill function
         strFill : function( str, len ) {
             while ( str.length < len ) {
