@@ -43,11 +43,8 @@ exports.task = function( grunt ) {
     return function() {
         grunt.log.writeln( 'Starting install...'.cyan );
 
-        // Run install script from shell - @todo add shell commands to this task
+        // Run install script from shell
         grunt.task.run( 'shell:install' );
-
-        // Add git pre-commit hook
-        addPrecommitHook();
 
         // Fired when the shell script finishes
         grunt.event.on( 'eventEnd:install', function( task ) {
@@ -55,6 +52,10 @@ exports.task = function( grunt ) {
             grunt.log.writeln( '\n' + task + ' task completed.' );
             grunt.log.writeln( '✔'.magenta + ' seed install completed successfully'.cyan );
 
+            // Add git pre-commit hook
+            addPrecommitHook();
+
+            // Switch install flag
             utils.addInstallFlag( 'app-config.json' );
         });
 
