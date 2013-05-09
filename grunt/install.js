@@ -11,14 +11,43 @@ exports.task = function( grunt ) {
 
     var utils = require( './utils').init( grunt );
 
+    var addPrecommitHook = function() {
+        // Check that .git stills exists
+        if ( grunt.file.exists( './.git/hooks/' ) ) {
+            // If a hooks file already exists then leave it alone
+            if ( grunt.file.exists( './.git/hooks/test' ) ) {
+                grunt.log.writeln( '✘'.magenta + ' - Precommit already exists'.red );
+                return;
+            }
+
+            // Otherwise write precommit hook
+            grunt.file.write( './.git/hooks/test',
+                '#!/bin/sh\n' +
+                    '#\n' +
+                    '# Lints code before commit\n' +
+                    '\n' +
+                    'grunt lint\n' +
+                    '\n' +
+                    'RETVAL=$?\n' +
+                    '\n' +
+                    'if [ $RETVAL -ne 0 ]\n' +
+                    '\tthen\n' +
+                    '\texit 1\n' +
+                    'fi\n'
+            );
+
+            grunt.log.writeln( '✔'.magenta + ' precommit hook written successfully'.cyan );
+        }
+    };
+
     return function() {
         grunt.log.writeln( 'Starting install...'.cyan );
 
         // Run install script from shell - @todo add shell commands to this task
         grunt.task.run( 'shell:install' );
 
-        // @todo Add git pre-commit hook
-
+        // Add git pre-commit hook
+        addPrecommitHook();
 
         // Fired when the shell script finishes
         grunt.event.on( 'eventEnd:install', function( task ) {
