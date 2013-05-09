@@ -15,13 +15,13 @@ exports.task = function( grunt ) {
         // Check that .git stills exists
         if ( grunt.file.exists( './.git/hooks/' ) ) {
             // If a hooks file already exists then leave it alone
-            if ( grunt.file.exists( './.git/hooks/test' ) ) {
+            if ( grunt.file.exists( './.git/hooks/pre-commit' ) ) {
                 grunt.log.writeln( '✘'.magenta + ' - Precommit already exists'.red );
                 return;
             }
 
             // Otherwise write precommit hook
-            grunt.file.write( './.git/hooks/test',
+            grunt.file.write( './.git/hooks/pre-commit',
                 '#!/bin/sh\n' +
                     '#\n' +
                     '# Lints code before commit\n' +
