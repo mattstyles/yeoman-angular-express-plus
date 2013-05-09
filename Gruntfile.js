@@ -377,7 +377,10 @@ module.exports = function (grunt) {
         shell: {
             install: {
                 command: [
-                    'git remote rm origin',
+                    'rm -r .git',
+                    'git init',
+                    'git add .',
+                    'git commit -m \'Initial commit\'',
                     'bower install'
                 ].join('&&'),
                 options: {
