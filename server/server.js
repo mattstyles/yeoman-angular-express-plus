@@ -14,11 +14,15 @@ var server = module.exports = express();
 // Configure Server
 server.configure( function() {
     server.set( 'port', process.env.PORT || 3001 );
+    // @todo add hogan to serve views
+    server.set( 'views', path.join( __dirname, './../app' ) );
+    server.engine( 'html', cons.hogan );
+    server.set( 'view engine', 'html' );
     
     server.use( express.bodyParser() );
     server.use( express.methodOverride() );
-    server.use( server.router );
     server.use( express.static( path.join( __dirname, './../app' ) ) );
+    server.use( server.router );
 } );
        
 server.configure( 'development', function() {
