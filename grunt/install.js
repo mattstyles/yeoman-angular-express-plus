@@ -23,17 +23,19 @@ exports.task = function( grunt ) {
             // Otherwise write precommit hook
             grunt.file.write( './.git/hooks/pre-commit',
                 '#!/bin/sh\n' +
-                    '#\n' +
-                    '# Lints code before commit\n' +
-                    '\n' +
-                    'grunt lint\n' +
-                    '\n' +
-                    'RETVAL=$?\n' +
-                    '\n' +
-                    'if [ $RETVAL -ne 0 ]\n' +
-                    '\tthen\n' +
-                    '\texit 1\n' +
-                    'fi\n'
+                '#\n' +
+                '# Lints code before commit\n' +
+                '\n' +
+                'PATH=/usr/local/share/npm/bin/:/usr/local/bin/:$PATH' +
+                '\n' +
+                'grunt lint\n' +
+                '\n' +
+                'RETVAL=$?\n' +
+                '\n' +
+                'if [ $RETVAL != 0 ]\n' +
+                '\tthen\n' +
+                '\texit 1\n' +
+                'fi\n'
             );
 
             grunt.log.writeln( '✔'.magenta + ' precommit hook written successfully'.cyan );
