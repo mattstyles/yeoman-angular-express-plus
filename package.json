@@ -2,7 +2,8 @@
   "name": "yeoman-angular-express-plus",
   "version": "0.1.0",
   "dependencies": {
-    "lodash": "~1.2.1"
+    "lodash": "~1.2.1",
+    "express": "~3.2.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

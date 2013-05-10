@@ -5,6 +5,7 @@
  * --
  * Runs npm and bower installs
  * Adds git pre-commit hook
+ * Re-initialises git
  */
 
 exports.task = function( grunt ) {

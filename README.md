@@ -109,7 +109,7 @@ After cloning the project, if you don’t want everything on master (while it’
 
 __client__
 
-Contains Angular and the other client-side goodies.  Uses Bootstrap JS instead of the UI-Bootstrap Angular versions.  Clone it and use `grunt dev` to have a look at what’s on after.
+Contains Angular and the other client-side goodies.  Uses Bootstrap JS instead of the UI-Bootstrap Angular versions.  Clone it and use `grunt dev` to have a look at what’s on offer.
 
 __client-angular-bootstrap__
 
