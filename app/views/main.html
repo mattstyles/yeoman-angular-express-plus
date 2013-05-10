@@ -1,16 +1,21 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <div>
-      <button class="btn pull-right" ng-click="collapse()">
-          <i class="{{collapseIcon}}"></i> {{collapseText}}
-      </button>
-  </div>
-  <div collapse="isCollapsed">
-      <p>You now have</p>
-      <ul class="well well-large">
-          <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-      </ul>
-      <p>installed.</p>
-  </div>
-  <h3>Enjoy coding! - Yeoman</h3>
+    <h1>'Allo, 'Allo!</h1>
+    <div>
+        <button class="btn pull-right" ng-click="collapse()">
+            <i class="{{collapseIcon}}"></i> {{collapseText}}
+        </button>
+    </div>
+    <div collapse="isCollapsed">
+        <p>You now have</p>
+        <div class="row well well-large">
+            <ul class="span4">
+                <li ng-repeat="thing in awesomeClientThings">{{thing}}</li>
+            </ul>
+            <ul class="span4">
+                <li ng-repeat="thing in awesomeServerThings">{{thing}}</li>
+            </ul>
+        </div>
+        <p>installed.</p>
+    </div>
+    <h3>Enjoy coding! - Yeoman</h3>
 </div>

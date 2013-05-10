@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('yoAngularExpressTestApp')
-    .controller('MainCtrl', ['$scope', function ($scope) {
+angular.module( 'yoAngularExpressTestApp' )
+    .controller( 'MainCtrl', [ '$scope', function( $scope ) {
 
-        $scope.awesomeThings = [
+        $scope.awesomeClientThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma',
@@ -11,7 +11,12 @@ angular.module('yoAngularExpressTestApp')
             'UI-Bootstrap',
             'Font-Awesome',
             'Modernizr',
-            'lodash'
+            'lodash',
+        ];
+
+        $scope.awesomeServerThings = [
+            'Express',
+            'Hogan'
         ];
 
         $scope.isCollapsed = true;
