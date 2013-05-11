@@ -23,7 +23,8 @@ module.exports = function (grunt) {
     var appConfig = grunt.file.readJSON( 'app-config.json' ) || {};
     var yeomanConfig = {
         app: appConfig.appPath || 'app',
-        dist: appConfig.distPath || 'dist'
+        dist: appConfig.distPath || 'dist',
+        server: appConfig.serverPath || 'server'
     };
 
     // Run install script if necessary
@@ -178,6 +179,12 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 'grunt/*',
                 '<%= yeoman.app %>/scripts/{,*/}*.js'
+            ],
+            app: [
+                '<%= yeoman.app %>/scripts/{,*/}*.js'
+            ],
+            server: [
+                '<%= yeoman.server %>/{,*/}*.js'
             ]
         },
 
