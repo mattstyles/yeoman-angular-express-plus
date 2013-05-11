@@ -13,5 +13,8 @@
     "appPath"   :   "app",
     "serverPath":   "server",
     "distPath"  :   "dist",
+    "server" : {
+        "port"      :   3001
+    },
 	"installed" :   false
 }

@@ -411,7 +411,7 @@ module.exports = function (grunt) {
             },
             server: {
                 command: [
-                    'open http://localhost:3001',
+                    'open http://localhost:' + appConfig.server.port,
                     'node dist/server/server.js'
                 ].join('&&'),
                 options: {
@@ -422,7 +422,7 @@ module.exports = function (grunt) {
             },
             devServer: {
                 command: [
-                    'open http://localhost:3001',
+                    'open http://localhost:' + appConfig.server.port,
                     'node server/server.js'
                 ].join('&&'),
                 options: {
