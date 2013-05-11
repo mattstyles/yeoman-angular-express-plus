@@ -502,7 +502,7 @@ module.exports = function (grunt) {
     }
 
     if ( grunt.option( 'open-server' ) ) {
-        tasks = 'open-server-build'; 
+        tasks = 'open-server-build';
     }
 
     helpers.registerTask(
@@ -511,7 +511,7 @@ module.exports = function (grunt) {
         tasks,
         { 'use' : 'serve locally after build',
           'open-client' : 'opens the client-side build',
-          'open-server' : 'opens the production build' 
+          'open-server' : 'opens the production build'
         }
     );
 
