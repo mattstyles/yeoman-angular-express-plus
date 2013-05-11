@@ -12,9 +12,6 @@ var express     = require( 'express' ),
 
 var server = module.exports = express();
 
-// Sockets.io - hook to Express
-var io = require( 'socket.io' ).listen( server );
-
 // Configure Server
 server.configure( function() {
     server.set( 'port', process.env.PORT || appConfig.server.port );
@@ -41,10 +38,11 @@ server.configure( 'production', function() {
 // Configure Routes
 require( './router' );
 
-// Start socket connection
-io.sockets.on( 'connection', require( './socket' ) );
 
-// Start server
-http.createServer( server ).listen( server.get( 'port' ), function() {
+// Start server - hook in sockets
+var io = require( 'socket.io' ).listen( http.createServer( server ).listen( server.get( 'port' ), function() {
     console.log( 'Express server listening on ' + server.get( 'port' ) );
-} );
+} ) );
+
+// Add socket connection event
+io.sockets.on( 'connection', require( './socket' ) );
