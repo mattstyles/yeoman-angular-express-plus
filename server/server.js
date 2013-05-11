@@ -19,6 +19,8 @@ server.configure( function() {
     server.set( 'views', path.join( __dirname, './../app' ) );
     server.engine( 'html', cons.hogan );
     server.set( 'view engine', 'html' );
+    server.engine( 'hjs', cons.hogan );
+    server.set( 'view engine', 'hjs' );
 
     server.use( express.bodyParser() );
     server.use( express.methodOverride() );
