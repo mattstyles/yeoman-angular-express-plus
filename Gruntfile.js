@@ -527,7 +527,7 @@ module.exports = function (grunt) {
         'lint',
         'Compiles jshint config file and lints code',
         [   'jsonmin',
-            'jshint',
+            'jshint:all',
             'clean:jshint'
         ]
     );
