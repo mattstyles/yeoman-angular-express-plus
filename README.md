@@ -115,6 +115,13 @@ __client-angular-bootstrap__
 
 Contains Angular and all the client-side goodies and uses the Angular versions of the bootstrap interactive elements.  Check out the [client-side usage example](#usage-example).
 
+__express__
+
+Backs the Angular client-side shizzle with a little express server out the back, ready to be extended.
+
+__express-hogan__
+
+Adds [Hogan.js](http://twitter.github.io/hogan.js/) into the server side mix.  Currently still just serves html.
 
 ## Detailed Usage Instructions
 
