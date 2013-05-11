@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('yoAngularExpressTestApp', ['ui.bootstrap', 'btford.socket-io'])
-    .config(function ($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -10,4 +10,6 @@ angular.module('yoAngularExpressTestApp', ['ui.bootstrap', 'btford.socket-io'])
         .otherwise({
             redirectTo: '/'
         });
-    });
+
+        $locationProvider.html5Mode( true );
+    }]);
