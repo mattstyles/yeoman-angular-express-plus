@@ -18,13 +18,13 @@ server.configure( function() {
     server.set( 'views', path.join( __dirname, './../app' ) );
     server.engine( 'html', cons.hogan );
     server.set( 'view engine', 'html' );
-    
+
     server.use( express.bodyParser() );
     server.use( express.methodOverride() );
     server.use( express.static( path.join( __dirname, './../app' ) ) );
     server.use( server.router );
 } );
-       
+
 server.configure( 'development', function() {
     server.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) );
 } );
