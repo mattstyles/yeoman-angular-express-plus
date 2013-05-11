@@ -366,6 +366,17 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
+            misc: {
+                files:[{
+                    expand: true,
+                    dot: true,
+                    cwd: '',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        '*.json'
+                    ]
+                }]
+            },
             server: {
                 files: [{
                     expand: true,
