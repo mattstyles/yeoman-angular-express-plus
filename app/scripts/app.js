@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('yoAngularExpressTestApp', ['ui.bootstrap'])
+angular.module('yoAngularExpressTestApp', ['ui.bootstrap', 'btford.socket-io'])
     .config(function ($routeProvider) {
         $routeProvider
         .when('/', {
