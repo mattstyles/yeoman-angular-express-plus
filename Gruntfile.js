@@ -419,6 +419,17 @@ module.exports = function (grunt) {
                     stderror: true,
                     failOnError: true
                 }
+            },
+            devServer: {
+                command: [
+                    'open http://localhost:3001',
+                    'node server/server.js'
+                ].join('&&'),
+                options: {
+                    stdout: true,
+                    stderror: true,
+                    failOnError: true
+                }
             }
         }
 
@@ -451,11 +462,21 @@ module.exports = function (grunt) {
 
     helpers.addOption( '!skip-tests', tasks, 0, 'test' );
 
+    if ( grunt.option( 'use-server' ) ) {
+        tasks = [
+            'clean:server',
+            'less:dev',
+            'shell:devServer'
+        ] 
+    }
+
     helpers.registerTask(
         'server',
         'Compiles the project for development and starts\na development server and watch task ',
         tasks,
-        { 'skip-tests' : 'skips the tests' }
+        { 'skip-tests' : 'skips the tests',
+          'use-server' : 'uses project server' 
+        }
     );
 
     /**
