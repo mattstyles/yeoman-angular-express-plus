@@ -369,9 +369,11 @@ module.exports = function (grunt) {
             server: {
                 files: [{
                     expand: true,
+                    dot: true,
                     cwd: '<%= yeoman.server %>',
                     dest: '<%= yeoman.dist %>/<%= yeoman.server %>',
                     src: [
+                        '{,*/}*'
                     ]
                 }]
             }
@@ -405,6 +407,17 @@ module.exports = function (grunt) {
                     stderror: true,
                     failOnError: true,
                     callback: utils.emit( 'eventEnd:install' )
+                }
+            },
+            server: {
+                command: [
+                    'open http://localhost:3001',
+                    'node dist/server/server.js'
+                ].join('&&'),
+                options: {
+                    stdout: true,
+                    stderror: true,
+                    failOnError: true
                 }
             }
         }
@@ -483,10 +496,14 @@ module.exports = function (grunt) {
         'usebanner'
     ];
 
-    helpers.addOption( 'use', tasks, 'usebanner', 'open-build' );
+    helpers.addOption( 'use', tasks, tasks.length, 'open-client-build' );
 
-    if ( grunt.option( 'open' ) ) {
-        tasks = 'open-build';
+    if ( grunt.option( 'open-client' ) ) {
+        tasks = 'open-client-build';
+    }
+
+    if ( grunt.option( 'open-server' ) ) {
+        tasks = 'open-server-build'; 
     }
 
     helpers.registerTask(
@@ -494,7 +511,9 @@ module.exports = function (grunt) {
         'Builds the project into ' + yeomanConfig.dist,
         tasks,
         { 'use' : 'serve locally after build',
-          'open' : 'opens the build' }
+          'open-client' : 'opens the client-side build',
+          'open-server' : 'opens the production build' 
+        }
     );
 
     // Register task list to open the built distribution - serving locally
@@ -507,9 +526,19 @@ module.exports = function (grunt) {
     ];
 
     helpers.registerTask(
-        'open-build',
-        'Opens the production build',
+        'open-client-build',
+        'Opens the production client-side build',
         openTasks
+    );
+
+    var openServerTasks = [
+        'shell:server'
+    ];
+
+    helpers.registerTask(
+        'open-server-build',
+        'Opens the production build',
+        openServerTasks
     );
 
     /**
