@@ -38,10 +38,12 @@ angular.module( 'yoAngularExpressTestApp' )
             }
         };
 
+        $scope.connectedClass = 'icon-remove';
         $scope.connected = 'Not Connected to Server';
 
         socket.on( 'send:onConnect', function( data ) {
             $scope.connected = data.data;
+            $scope.connectedClass = 'icon-link';
         } );
 
     }]);
