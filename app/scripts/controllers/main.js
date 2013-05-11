@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module( 'yoAngularExpressTestApp' )
-    .controller( 'MainCtrl', [ '$scope', function( $scope ) {
+    .controller( 'MainCtrl', [ '$scope', 'socket', function( $scope, socket ) {
 
         $scope.awesomeClientThings = [
             'HTML5 Boilerplate',
@@ -16,7 +16,8 @@ angular.module( 'yoAngularExpressTestApp' )
 
         $scope.awesomeServerThings = [
             'Express',
-            'Hogan'
+            'Hogan',
+            'Socket.io'
         ];
 
         $scope.isCollapsed = true;
@@ -36,5 +37,11 @@ angular.module( 'yoAngularExpressTestApp' )
                 $scope.collapseIcon = 'icon-chevron-up';
             }
         };
+
+        $scope.connected = 'Not Connected to Server';
+
+        socket.on( 'send:onConnect', function( data ) {
+            $scope.connected = data.data;
+        } );
 
     }]);
