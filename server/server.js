@@ -15,7 +15,6 @@ var server = module.exports = express();
 // Configure Server
 server.configure( function() {
     server.set( 'port', process.env.PORT || appConfig.server.port );
-    // @todo add hogan to serve views
     server.set( 'views', path.join( __dirname, './../app' ) );
     server.engine( 'html', cons.hogan );
     server.set( 'view engine', 'html' );
