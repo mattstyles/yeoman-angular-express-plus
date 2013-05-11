@@ -467,7 +467,7 @@ module.exports = function (grunt) {
             'clean:server',
             'less:dev',
             'shell:devServer'
-        ] 
+        ];
     }
 
     helpers.registerTask(
@@ -475,7 +475,7 @@ module.exports = function (grunt) {
         'Compiles the project for development and starts\na development server and watch task ',
         tasks,
         { 'skip-tests' : 'skips the tests',
-          'use-server' : 'uses project server' 
+          'use-server' : 'uses project server'
         }
     );
 
@@ -524,7 +524,7 @@ module.exports = function (grunt) {
     }
 
     if ( grunt.option( 'open-server' ) ) {
-        tasks = 'open-server-build'; 
+        tasks = 'open-server-build';
     }
 
     helpers.registerTask(
@@ -533,7 +533,7 @@ module.exports = function (grunt) {
         tasks,
         { 'use' : 'serve locally after build',
           'open-client' : 'opens the client-side build',
-          'open-server' : 'opens the production build' 
+          'open-server' : 'opens the production build'
         }
     );
 
