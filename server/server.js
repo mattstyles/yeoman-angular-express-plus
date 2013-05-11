@@ -14,13 +14,13 @@ var server = module.exports = express();
 // Configure Server
 server.configure( function() {
     server.set( 'port', process.env.PORT || 3001 );
-    
+
     server.use( express.bodyParser() );
     server.use( express.methodOverride() );
     server.use( server.router );
     server.use( express.static( path.join( __dirname, './../app' ) ) );
 } );
-       
+
 server.configure( 'development', function() {
     server.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) );
 } );
