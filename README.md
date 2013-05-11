@@ -46,6 +46,12 @@ Follow these steps to bubble the JS cauldron:
 
 * [lodash](http://lodash.com/)
 
+* [Express](http://expressjs.com/)
+
+* [Hogan](http://twitter.github.io/hogan.js/)
+
+* [Socket.io](http://socket.io/)
+
 
 ## Detailed Include-list
 
@@ -121,7 +127,11 @@ Backs the Angular client-side shizzle with a little express server out the back,
 
 __express-hogan__
 
-Adds [Hogan.js](http://twitter.github.io/hogan.js/) into the server side mix.  Currently still just serves html.
+Adds [Hogan.js](http://twitter.github.io/hogan.js/) into the server side mix.  Can serve hogan templates or raw html.
+
+__sockets__
+
+Adds [socket.io](http://socket.io/) support to connect client and server.
 
 ## Detailed Usage Instructions
 
