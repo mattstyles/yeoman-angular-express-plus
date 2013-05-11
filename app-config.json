@@ -1,6 +1,6 @@
 {
     "info" : {
-        "name"          :   "yo-angular-express-test",
+        "name"          :   "yo-angular-express-plus",
         "description"   :   "Yeoman scaffolded angular-express app with extra goodies",
         "version"       :   "0.1.0",
         "author"        :   {
