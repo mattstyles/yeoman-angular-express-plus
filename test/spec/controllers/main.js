@@ -19,8 +19,8 @@ describe( 'Controller: MainCtrl', function() {
     it( 'should attach a list of awesomeClientThings to the scope', function() {
         expect( scope.awesomeClientThings.length ).toBe( 8 );
     } );
-    
+
     it( 'should attach a list of awesomeServerThings to the scope', function() {
-        expect( scope.awesomeServerThings.length ).toBe( 2 );
+        expect( scope.awesomeServerThings.length ).toBe( 3 );
     } );
 } );

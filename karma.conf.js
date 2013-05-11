@@ -10,6 +10,8 @@ files = [
   'app/components/angular/angular.js',
   'app/components/angular-mocks/angular-mocks.js',
   'app/components/angular-bootstrap/*.js',
+  'app/components/socket.io-client/dist/*js',
+  'app/components/angular-socket-io/*.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
