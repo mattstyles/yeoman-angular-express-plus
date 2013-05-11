@@ -11,7 +11,7 @@
         }
     },
     "appPath"   :   "app",
-    "distPath"  :   "dist",
     "serverPath":   "server",
+    "distPath"  :   "dist",
 	"installed" :   false
 }
