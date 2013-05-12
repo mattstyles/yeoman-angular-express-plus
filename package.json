@@ -4,6 +4,9 @@
   "scripts": {
     "start": "server/server.js"
   },
+  "domains": [
+  ],
+  "subdomain": "",
   "dependencies": {
     "lodash": "~1.2.1",
     "express": "~3.2.4",
