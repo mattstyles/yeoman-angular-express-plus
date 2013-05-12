@@ -441,6 +441,16 @@ module.exports = function (grunt) {
                     stderror: true,
                     failOnError: true
                 }
+            },
+            startServer: {
+                command: [
+                    'node server/server.js'
+                ].join('&&'),
+                options: {
+                    stdout: true,
+                    stderror: true,
+                    failOnError: true
+                }
             }
         }
 
@@ -481,12 +491,21 @@ module.exports = function (grunt) {
         ];
     }
 
+    if ( grunt.option( 'restart-server' ) ) {
+        tasks = [
+            'clean:server',
+            'less:dev',
+            'shell:startServer'
+        ];
+    }
+
     helpers.registerTask(
         'server',
         'Compiles the project for development and starts\na development server and watch task ',
         tasks,
         { 'skip-tests' : 'skips the tests',
-          'use-server' : 'uses project server'
+          'use-server' : 'uses project server',
+          'restart-server' : 'restarts projects server'
         }
     );
 
