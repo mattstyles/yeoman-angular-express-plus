@@ -2,7 +2,8 @@
   "name": "yeoman-angular-express-plus",
   "version": "0.1.0",
   "scripts": {
-    "start": "server/server.js"
+    "start": "server/server.js",
+    "test": "grunt test"
   },
   "domains": [
   ],
