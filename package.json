@@ -1,6 +1,9 @@
 {
   "name": "yeoman-angular-express-plus",
   "version": "0.1.0",
+  "scripts": {
+    "start": "server/server.js"
+  }
   "dependencies": {
     "lodash": "~1.2.1",
     "express": "~3.2.4",
