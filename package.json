@@ -5,8 +5,7 @@
     "start": "server/server.js",
     "test": "grunt test"
   },
-  "domains": [
-  ],
+  "domains": [],
   "subdomain": "",
   "dependencies": {
     "lodash": "~1.2.1",
@@ -43,7 +42,8 @@
     "grunt-booty": "~0.2.1",
     "grunt-jsonmin": "~0.2.3",
     "grunt-banner": "~0.1.4",
-    "grunt-shell": "~0.2.2"
+    "grunt-shell": "~0.2.2",
+    "grunt-cli": "~0.1.8"
   },
   "engines": {
     "node": ">=0.8.0"
