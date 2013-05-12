@@ -52,6 +52,8 @@ Follow these steps to bubble the JS cauldron:
 
 * [Socket.io](http://socket.io/)
 
+* [Nodejitsu Deploy](https://www.nodejitsu.com/)
+
 
 ## Detailed Include-list
 
@@ -132,6 +134,11 @@ Adds [Hogan.js](http://twitter.github.io/hogan.js/) into the server side mix.  C
 __sockets__
 
 Adds [socket.io](http://socket.io/) support to connect client and server.
+
+__jitsu__
+
+Adds a `deploy` task to the gruntfile that pushes a deploy of your built code straight to nodejitsu.  Just add a subdomain to the `package.json` and use `grunt build --deploy` after running a build to deploy your code.
+
 
 ## Detailed Usage Instructions
 
