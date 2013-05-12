@@ -451,6 +451,17 @@ module.exports = function (grunt) {
                     stderror: true,
                     failOnError: true
                 }
+            },
+            jitsuDeploy: {
+                command: [
+                    'cd dist',
+                    'jitsu deploy'
+                ].join('&&'),
+                options: {
+                    stdout: true,
+                    stderror: true,
+                    failOnError: true
+                }
             }
         }
 
@@ -557,13 +568,18 @@ module.exports = function (grunt) {
         tasks = 'open-server-build';
     }
 
+    if ( grunt.option( 'deploy' ) ) {
+        tasks = 'jitsu-deploy';
+    }
+
     helpers.registerTask(
         'build',
         'Builds the project into ' + yeomanConfig.dist,
         tasks,
         { 'use' : 'serve locally after build',
           'open-client' : 'opens the client-side build',
-          'open-server' : 'opens the production build'
+          'open-server' : 'opens the production build',
+          'deploy' : 'deploys to Nodejitsu'
         }
     );
 
@@ -590,6 +606,16 @@ module.exports = function (grunt) {
         'open-server-build',
         'Opens the production build',
         openServerTasks
+    );
+
+    var deployTasks = [
+        'shell:jitsuDeploy'
+    ];
+
+    helpers.registerTasks(
+        'jitsu-deploy',
+        'Deploys to Nodejitsu',
+        deployTasks
     );
 
     /**
