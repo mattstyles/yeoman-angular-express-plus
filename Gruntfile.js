@@ -612,7 +612,7 @@ module.exports = function (grunt) {
         'shell:jitsuDeploy'
     ];
 
-    helpers.registerTasks(
+    helpers.registerTask(
         'jitsu-deploy',
         'Deploys to Nodejitsu',
         deployTasks
