@@ -1,13 +1,15 @@
 'use strict';
 
 // Dependencies
-var io = require( './../server' ).io;
+module.exports = function( socket ) {
 
-//io.sockets.on( 'connection', require( './socket' ) );
-io.sockets.on( 'event:example', function( socket ) {
-
-    socket.emit( 'send:example', {
-        data: 'Hurray for sockets'
+    // Example event
+    socket.on( 'send:example', function( data ) {
+        console.log('server socket on');
+        console.log(data.data);
+        socket.emit( 'send:example', {
+            data: 'Hurray for sockets'
+        } );
     } );
 
-} );
+};
