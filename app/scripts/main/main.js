@@ -46,4 +46,17 @@ angular.module( 'yoAngularExpressTestApp' )
             $scope.connectedClass = 'icon-link';
         } );
 
+        $scope.socketExample = function() {
+            console.log('sending event to socket');
+            socket.emit( 'send:example', {
+                data: 'example'
+            } );
+        };
+
+        $scope.socketText = 'Hit the button';
+
+        socket.on( 'send:example', function( data ) {
+            console.log('client socket on');
+            $scope.socketText = data.data;
+        } );
     }]);

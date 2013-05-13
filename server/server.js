@@ -36,13 +36,14 @@ server.configure( 'production', function() {
     server.use( express.errorHandler() );
 } );
 
-// Configure Routes
-require( './routes' );
 
 // Start server - hook in sockets
 exports.io = require( 'socket.io' ).listen( http.createServer( server ).listen( server.get( 'port' ), function() {
     console.log( 'Express server listening on ' + server.get( 'port' ) );
 } ) );
+
+// Configure Routes
+require( './routes' );
 
 // Configure sockets
 require( './sockets');
