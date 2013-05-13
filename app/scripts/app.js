@@ -4,7 +4,8 @@ angular.module('yoAngularExpressTestApp', ['ui.bootstrap', 'btford.socket-io'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
         .when('/', {
-            templateUrl: 'views/main.html',
+            // @todo fix this
+            templateUrl: 'scripts/main/main.html',
             controller: 'MainCtrl'
         })
         .otherwise({
