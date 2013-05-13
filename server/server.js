@@ -10,7 +10,8 @@ var express     = require( 'express' ),
     path        = require( 'path' ),
     appConfig   = require( './../app-config.json' );
 
-var server = module.exports = express();
+//var server = module.exports = express();
+var server = exports.server = express();
 
 // Configure Server
 server.configure( function() {
@@ -36,13 +37,12 @@ server.configure( 'production', function() {
 } );
 
 // Configure Routes
-require( './router' );
-
+require( './routes' );
 
 // Start server - hook in sockets
-var io = require( 'socket.io' ).listen( http.createServer( server ).listen( server.get( 'port' ), function() {
+exports.io = require( 'socket.io' ).listen( http.createServer( server ).listen( server.get( 'port' ), function() {
     console.log( 'Express server listening on ' + server.get( 'port' ) );
 } ) );
 
-// Add socket connection event
-io.sockets.on( 'connection', require( './socket' ) );
+// Configure sockets
+require( './sockets');
