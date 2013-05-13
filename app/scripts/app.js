@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('yoAngularExpressTestApp', ['ui.bootstrap', 'btford.socket-io'])
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+angular.module( 'yoAngularExpressTestApp', [ 'ui.bootstrap', 'btford.socket-io' ])
+    .config( [ '$routeProvider', '$locationProvider', function ( $routeProvider, $locationProvider ) {
         $routeProvider
-        .when('/', {
+        .when( '/', {
             // @todo fix this
-            templateUrl: 'scripts/main/main.html',
+            templateUrl: 'scripts/main/mainView.html',
             controller: 'MainCtrl'
         })
         .otherwise({
