@@ -1,11 +1,12 @@
 'use strict';
 
 // Dependencies
-var mongo = require( 'mongodb' );
+var mongo       = require( 'mongodb' ),
+    appConfig   = require( '../../app-config.json' );
 
 // Create mongo server
-var server  = new mongo.Server( 'localhost', 27017, { auto_reconnect: true } ),
-    db      = new mongo.Db( 'test_db', server, { safe: true } );
+var server  = new mongo.Server( appConfig.database.host, appConfig.database.port, { auto_reconnect: true } ),
+    db      = new mongo.Db( appConfig.database.name, server, { safe: true } );
 
 // Open the database connection
 db.open( function( err, db ) {
@@ -17,7 +18,7 @@ db.open( function( err, db ) {
 
     // Access the test collection - populate with dummy data if necessary
     console.log( 'Database connection made' );
-    db.collection( 'test_col', { safe: true }, function( err, collection ) {
+    db.collection( appConfig.database.collection, { safe: true }, function( err, collection ) {
         // Populate with dummy if collection does not exist
         if ( err ) {
             console.log( 'Collection not found... populating with dummy data' );
