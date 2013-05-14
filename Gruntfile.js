@@ -542,8 +542,7 @@ module.exports = function (grunt) {
      */
     tasks = [
         'clean:dist',
-        'jsonmin',
-        'jshint',
+        'lint',
         'test',
         'less:dist',
         'useminPrepare',
