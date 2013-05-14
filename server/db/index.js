@@ -6,32 +6,31 @@ var mongo       = require( 'mongodb' ),
 
 // Create mongo server
 var server  = new mongo.Server( appConfig.database.host, appConfig.database.port, { auto_reconnect: true } ),
-    db      = new mongo.Db( appConfig.database.name, server, { safe: true } );
+    client  = module.exports = new mongo.MongoClient( server );
 
-// Open the database connection
-db.open( function( err, db ) {
-    // Handle error
+// Open a client to mongo
+client.open( function( err, client ) {
     if ( err ) {
-        console.log( 'Error opening database' );
-        return err;
+        console.log( 'Database connection error' );
+        console.log( err );
+        return;
     }
 
-    // Access the test collection - populate with dummy data if necessary
-    console.log( 'Database connection made' );
-    db.collection( appConfig.database.collection, { safe: true }, function( err, collection ) {
-        // Populate with dummy if collection does not exist
+    console.log( 'Database connection to ' + client.db( appConfig.database.name ).databaseName );
+
+    // Always create a new collection
+    var db = client.db( appConfig.database.name );
+    db.createCollection( appConfig.database.collection, function( err, col ) {
         if ( err ) {
-            console.log( 'Collection not found... populating with dummy data' );
-
-        } else {
-            console.log( 'Database collection connection made' );
-//            collection.insert( { name: 'test_name', data: 'test_data' }, { safe: true }, function( err, res ) {
-//                console.log( res ) ;
-//            } );
-
-            collection.find().toArray(function( err, items ) {
-                 console.log(items);
-            });
+            console.log( 'Error creating collection' );
+            console.log( err );
+            return;
         }
+
+        console.log( 'Collection created' );
     } );
+
 } );
+
+
+
