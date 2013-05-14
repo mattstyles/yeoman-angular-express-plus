@@ -17,7 +17,8 @@ angular.module( 'yoAngularExpressTestApp' )
         $scope.awesomeServerThings = [
             'Express',
             'Hogan',
-            'Socket.io'
+            'Socket.io',
+            'MongoDB'
         ];
 
         $scope.isCollapsed = true;

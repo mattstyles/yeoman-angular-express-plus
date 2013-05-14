@@ -21,6 +21,6 @@ describe( 'Controller: MainCtrl', function() {
     } );
 
     it( 'should attach a list of awesomeServerThings to the scope', function() {
-        expect( scope.awesomeServerThings.length ).toBe( 3 );
+        expect( scope.awesomeServerThings.length ).toBe( 4 );
     } );
 } );
