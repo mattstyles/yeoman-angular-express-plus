@@ -8,9 +8,10 @@ var express     = require( 'express' ),
     cons        = require( 'consolidate' ),
     http        = require( 'http' ),
     path        = require( 'path' ),
+    io          = require( 'socket.io' ),
     appConfig   = require( './../app-config.json' );
 
-//var server = module.exports = express();
+// Server instance
 var server = exports.server = express();
 
 // Configure Server
@@ -37,13 +38,16 @@ server.configure( 'production', function() {
 } );
 
 
-// Start server - hook in sockets
-exports.io = require( 'socket.io' ).listen( http.createServer( server ).listen( server.get( 'port' ), function() {
+// Start server - hook in sockets instance
+exports.io = io.listen( http.createServer( server ).listen( server.get( 'port' ), function() {
     console.log( 'Express server listening on ' + server.get( 'port' ) );
 } ) );
 
 // Configure Routes
 require( './routes' );
 
-// Configure sockets
+// Configure Sockets
 require( './sockets');
+
+// Configure Database
+require( './db' );
