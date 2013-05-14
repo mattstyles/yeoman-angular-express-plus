@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module( 'yoAngularExpressTestApp' )
-    .controller( 'MainCtrl', [ '$scope', 'socket', function( $scope, socket ) {
+    .controller( 'MainCtrl', [ '$scope', 'socket', '$location', '$window', function( $scope, socket, $location, $window ) {
 
         $scope.awesomeClientThings = [
             'HTML5 Boilerplate',
@@ -60,4 +60,10 @@ angular.module( 'yoAngularExpressTestApp' )
             console.log('client socket on');
             $scope.socketText = data.data;
         } );
+
+        $scope.redirect = function( path ) {
+            console.log('attempting to redirect to ' + path );
+//            $location.path( path );
+            $window.location.href = path;
+        };
     }]);
