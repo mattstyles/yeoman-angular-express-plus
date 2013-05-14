@@ -3,7 +3,7 @@
 var appConfig   = require( '../../app-config.json' ),
     db          = require( '../db' ).db( appConfig.database.name );
 
-// Example route
+// Example route - returns all items in database collection
 module.exports = function( req, res ) {
 
     console.log( 'Accessing database ' + db.databaseName );

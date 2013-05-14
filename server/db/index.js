@@ -1,8 +1,10 @@
 'use strict';
+/* jshint camelcase: false */
 
 // Dependencies
 var mongo       = require( 'mongodb' ),
-    appConfig   = require( '../../app-config.json' );
+    appConfig   = require( '../../app-config.json' ),
+    createDummyCollection;
 
 // Create mongo server
 var server  = new mongo.Server( appConfig.database.host, appConfig.database.port, { auto_reconnect: true } ),
@@ -35,7 +37,7 @@ client.open( function( err, client ) {
                 return err;
             }
 
-            if ( !items.length > 0 ) {
+            if ( items.length <= 0 ) {
                 createDummyCollection( collection );
             }
         } );
@@ -45,7 +47,7 @@ client.open( function( err, client ) {
 
 
 // Create dummy data for the collection
-var createDummyCollection = function( collection ) {
+createDummyCollection = function( collection ) {
     console.log( 'Creating collection...' );
 
     var dummy = [{
