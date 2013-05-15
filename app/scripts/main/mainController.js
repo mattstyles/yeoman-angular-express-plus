@@ -54,11 +54,10 @@ angular.module( 'yoAngularExpressTestApp' )
             } );
         };
 
-        $scope.socketText = 'Hit the button';
-
         socket.on( 'send:example', function( data ) {
             console.log('client socket on');
-            $scope.socketText = data.data;
+
+            $('.hero-unit').css( 'background-color', '#DC002A' );
         } );
 
         $scope.redirect = function( path ) {
