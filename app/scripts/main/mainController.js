@@ -65,4 +65,5 @@ angular.module( 'yoAngularExpressTestApp' )
 //            $location.path( path );
             $window.location.href = path;
         };
+
     }]);
