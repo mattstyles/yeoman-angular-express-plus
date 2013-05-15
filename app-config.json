@@ -16,11 +16,11 @@
     "server" : {
         "port"      :   3001
     },
-	"installed" :   false
     "database" : {
         "host"          : "localhost",
         "port"          : 27017,
         "name"          : "test_db",
         "collection"    : "test_col"
     },
+	"installed" :   false
 }
