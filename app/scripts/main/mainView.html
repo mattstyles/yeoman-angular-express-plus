@@ -21,8 +21,22 @@
         <p>installed.</p>
     </div>
     <h3>Enjoy coding! - Yeoman</h3>
-    <button class="btn" ng-click="socketExample()">
-        <i class="icon-external-link"</button></i> Socket Test
-    </button>
-    <p>{{socketText}}</p>
 </div>
+<div class="row">
+        <div class="span4 text-center">
+            <button class="btn" ng-click="socketExample()">
+                <i class="icon-external-link"</button></i> Socket Test
+            </button>
+<!--            <p>{{socketText}}</p>-->
+        </div>
+        <div class="span4 text-center">
+            <button class="btn" ng-click="redirect( 'db' )">
+                <i class="icon-external-link"</button></i> Database Test
+            </button>
+        </div>
+        <div class="span4 text-center">
+            <button class="btn" ng-click="redirect( '/route/test' )">
+                <i class="icon-external-link"</button></i> Route Test
+            </button>
+        </div>
+    </div>
