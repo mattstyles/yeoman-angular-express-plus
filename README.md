@@ -52,6 +52,8 @@ Follow these steps to bubble the JS cauldron:
 
 * [Socket.io](http://socket.io/)
 
+* [MongoDB](http://www.mongodb.org/)
+
 * [Nodejitsu Deploy](https://www.nodejitsu.com/)
 
 
@@ -138,6 +140,10 @@ Adds [socket.io](http://socket.io/) support to connect client and server.
 __jitsu__
 
 Adds a `deploy` task to the gruntfile that pushes a deploy of your built code straight to nodejitsu.  Just add a subdomain to the `package.json` and use `grunt build --deploy` after running a build to deploy your code.
+
+__mongo__
+
+Adds a [mongo](http://www.mongodb.org/) database to the back end and organises the server code better.
 
 
 ## Detailed Usage Instructions
