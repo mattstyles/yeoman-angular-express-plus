@@ -425,7 +425,7 @@ module.exports = function (grunt) {
             server: {
                 command: [
                     'open http://localhost:' + appConfig.server.port,
-                    'node dist/server/server.js'
+                    'node <%= yeoman.dist %>/server/server.js'
                 ].join('&&'),
                 options: {
                     stdout: true,
