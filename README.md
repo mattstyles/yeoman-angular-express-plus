@@ -204,7 +204,7 @@ If you haven’t still got the watch task running then fire it back up with `gru
 
 As an example of using some of the features included in the seed we’ll create a quick modal box (example taken straight from the [UI-Bootstrap docs](http://angular-ui.github.io/bootstrap/#modal)).  Open up `/app/views/main.html` in your editor and add the following to the bottom:
 
-```js
+```html
 <div ng-controller="ModalDemoCtrl">
     <button class="btn" ng-click="open()">Open me!</button>
     <div modal="shouldBeOpen" close="close()" options="opts">
