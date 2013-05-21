@@ -436,7 +436,7 @@ module.exports = function (grunt) {
             devServer: {
                 command: [
                     'open http://localhost:' + appConfig.server.port,
-                    'node server/server.js'
+                    'node <%= yeoman.server %>/server.js'
                 ].join('&&'),
                 options: {
                     stdout: true,
@@ -446,7 +446,7 @@ module.exports = function (grunt) {
             },
             startServer: {
                 command: [
-                    'node server/server.js'
+                    'node <%= yeoman.server %>/server.js'
                 ].join('&&'),
                 options: {
                     stdout: true,
@@ -456,7 +456,7 @@ module.exports = function (grunt) {
             },
             jitsuDeploy: {
                 command: [
-                    'cd dist',
+                    'cd <%= yeoman.dist %>',
                     'jitsu deploy'
                 ].join('&&'),
                 options: {
