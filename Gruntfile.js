@@ -82,7 +82,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder( connect, '.tmp' ),
-                            mountFolder( connect, yeoman.app )
+                            mountFolder( connect, yeomanConfig.app )
                         ];
                     }
                 }
@@ -94,7 +94,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder( connect, '.tmp' ),
-                            mountFolder( connect, require('path').join( yeoman.dist, yeoman.app ) )
+                            mountFolder( connect, require('path').join( yeomanConfig.dist, yeomanConfig.app ) )
                         ];
                     }
                 }
