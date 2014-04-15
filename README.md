@@ -17,7 +17,7 @@ Why not put them all together?
 
 Follow these steps to bubble the JS cauldron:
 
-* `git clone git@github.com:mattstyles/yeoman-angular-express-plus path/to/directory`
+* `git clone https://github.com/mattstyles/yeoman-angular-express-plus.git path/to/directory`
 
 * `cd path/to/directory`
 
