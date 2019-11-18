@@ -9,7 +9,7 @@
   "subdomain": "",
   "dependencies": {
     "lodash": "~1.2.1",
-    "express": "~3.2.4",
+    "express": "~4.17.1",
     "consolidate": "~0.9.1",
     "hogan.js": "~2.0.0",
     "socket.io": "~0.9.14",
