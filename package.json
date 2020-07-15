@@ -8,7 +8,7 @@
   "domains": [],
   "subdomain": "",
   "dependencies": {
-    "lodash": "~1.2.1",
+    "lodash": "~4.17.19",
     "express": "~3.2.4",
     "consolidate": "~0.9.1",
     "hogan.js": "~2.0.0",
